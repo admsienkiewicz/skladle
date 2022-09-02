@@ -368,4 +368,8 @@ footer {
         background-image: url(close.png);
         background-size: cover;
     }
+
+    .team-logo {
+        width: 50%;
+    }
 }

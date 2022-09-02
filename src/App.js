@@ -99,7 +99,13 @@ const App = () => {
     const endGameScreen = (
         <div className="challange-modal">
             <div className="end-message">{win ? <h1>Gratulacje, wygrałeś</h1> : <h1>Tym razem się nie udało</h1>}</div>
-            <div className="confirm-challange" onClick={() => setGameState(defaultGameState)}>
+            <div
+                className="confirm-challange"
+                onClick={() => {
+                    setGameState(defaultGameState)
+                    setCorrectAnswersCounter(0)
+                }}
+            >
                 Jeszcz raz
             </div>
         </div>

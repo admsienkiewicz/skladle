@@ -102,8 +102,8 @@ const App = () => {
             <div
                 className="confirm-challange"
                 onClick={() => {
-                    setGameState(defaultGameState)
                     setCorrectAnswersCounter(0)
+                    setGameState(defaultGameState)
                 }}
             >
                 Jeszcz raz

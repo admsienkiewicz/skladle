@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { useEffect } from 'react'
 import ReactLoading from 'react-loading'
 import { AppContext } from '../App'
 

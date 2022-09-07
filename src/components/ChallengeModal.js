@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useEffect } from 'react'
 import ReactLoading from 'react-loading'
 import { AppContext } from '../App'
 
@@ -12,6 +13,7 @@ const ChallengeModal = () => {
     const matchDay = new Date(fixtureData.fixture.date).toLocaleString('pl-PL')
     const city = fixtureData.fixture.venue.city
     const { loading } = gameState
+
     return (
         <div className="challange-modal">
             {loading ? (

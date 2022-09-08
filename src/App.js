@@ -20,18 +20,19 @@ const App = () => {
     const [fixtureData, setFixtureData] = useState(defaultFixture)
     const [lineupData, setLineupData] = useState(defaultLineup)
     const [teamId, setTeamId] = useState(0)
-    const [remainingApiRequests, setReamainingApiRequest] = useState(0)
+    const [remainingApiRequests, setReamainingApiRequest] = useState(100)
     const [disableRequests, setDisableRequests] = useState(false)
     const [gameState, setGameState] = useState(defaultGameState)
     const [correctAnswersCounter, setCorrectAnswersCounter] = useState(0)
 
     const getFixturesFromApi = async () => {
+        console.log(process.env.REACT_APP_API_KEY)
         const options = {
             method: 'GET',
             url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
             params: { league: '106', season: '2020' },
             headers: {
-                'X-RapidAPI-Key': 'c5017548c6msh80dc9838118b7b4p1317ecjsn8ec295267c0e',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
             },
         }
@@ -45,7 +46,7 @@ const App = () => {
             url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures/lineups',
             params: { fixture: `${fixtureId}` },
             headers: {
-                'X-RapidAPI-Key': 'c5017548c6msh80dc9838118b7b4p1317ecjsn8ec295267c0e',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
             },
         }

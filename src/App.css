@@ -10,12 +10,21 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     font-family: 'Anek Telugu', sans-serif;
     color: black;
     background: linear-gradient(rgb(9, 50, 255) 0%, rgb(14, 138, 226) 100%);
+}
+
+.app-container {
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 
 body::after {
@@ -50,16 +59,4 @@ footer {
     align-items: center;
     box-shadow: -41px -25px 35px rgba(0, 0, 0, 0.1);
     background-color: aliceblue;
-}
-
-@media screen and (max-width: 550px) {
-    html {
-        /* min-height: -webkit-fill-available; */
-    }
-
-    body {
-        width: 100vw;
-        /* min-height: -webkit-fill-available; */
-        overflow: hidden;
-    }
 }

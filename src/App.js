@@ -94,7 +94,7 @@ const App = () => {
     )
     const output = (gameOver && endGameScreen) || (!startGame ? <ChallengeModal></ChallengeModal> : <Pitch></Pitch>)
     return (
-        <>
+        <div className="app-container">
             <header>Ekstraklasowe 11-tki</header>
             <AppContext.Provider
                 value={{
@@ -120,7 +120,7 @@ const App = () => {
                     <AiFillLinkedin className="footer-icon" />
                 </a>
             </footer>
-        </>
+        </div>
     )
 }
 

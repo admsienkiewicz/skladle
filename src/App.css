@@ -20,7 +20,7 @@ body {
 }
 
 .app-container {
-    height: 90vh;
+    height: calc(100vh-25px);
     width: 100vw;
     display: flex;
     justify-content: space-around;

@@ -56,9 +56,9 @@ footer {
     html {
         min-height: -webkit-fill-available;
     }
+
     body {
         width: 100vw;
-        min-height: 100vh;
         min-height: -webkit-fill-available;
         overflow: hidden;
     }

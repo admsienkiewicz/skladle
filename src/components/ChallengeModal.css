@@ -1,0 +1,111 @@
+.game-info {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.matchup,
+.scorebox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-logo {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.score {
+    padding: 20px;
+}
+
+.challange-modal {
+    width: 550px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: -6px 11px 28px 7px rgba(7, 7, 7, 0.595);
+}
+
+.options-box {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.confirm-challange,
+.new-challange {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
+    padding-top: 14px;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 5px;
+    color: aliceblue;
+}
+
+.confirm-challange:hover,
+.new-challange:hover,
+.player-box:hover,
+.key:hover,
+.close:hover {
+    cursor: pointer;
+}
+
+.confirm-challange {
+    background-color: green;
+}
+
+.new-challange {
+    background-color: gray;
+}
+
+.loading {
+    position: relative;
+    top: 40%;
+}
+
+@media screen and (max-width: 550px) {
+    .challange-modal {
+        width: 90vw;
+    }
+    .game-info h2 {
+        font-size: 18px;
+    }
+    .game-info {
+        max-width: 100%;
+    }
+    .team-logo {
+        aspect-ratio: 1/1;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .game-info h2 {
+        font-size: 16px;
+    }
+}

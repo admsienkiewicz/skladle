@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ReactLoading from 'react-loading'
 import { AppContext } from '../App'
+import './ChallengeModal.css'
 
 const ChallengeModal = () => {
     const { fixtureData, setGameState, selectRandomFixture, teamId, gameState } = useContext(AppContext)

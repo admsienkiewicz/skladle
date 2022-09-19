@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react'
 import Board from './Board'
 import Keyboard from './Keyboard'
 import { createContext } from 'react'
-import { defaultBoard } from '../Words'
+import { defaultBoard } from '../assets/defaults'
 import { AppContext } from '../App'
+import './Player.css'
 
 export const PlayerContext = createContext()
 

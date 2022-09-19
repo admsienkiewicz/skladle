@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import './App.css'
-import { convertToLatinLetters, defaultFixture, defaultLineup } from './Words'
+import { defaultFixture, defaultLineup } from './assets/defaults'
 import ChallengeModal from './components/ChallengeModal'
 import Pitch from './components/Pitch'
 import { useEffect } from 'react'
@@ -71,25 +71,6 @@ const App = () => {
         setGameState({ ...gameState, loading: false })
     }
 
-    const splitToFormations = () => {
-        const formations = [1, ...lineupData.formation.split('-')]
-        const starters = lineupData.startXI.map((starer) => {
-            const name = starer.player.name.split('. ')
-            if (name.length > 1) return convertToLatinLetters(name[1])
-            return convertToLatinLetters(name[0])
-        })
-        let i = 0
-        let squad = formations.map((line) => {
-            let lineSquad = []
-            while (lineSquad.length < line) {
-                lineSquad = [...lineSquad, starters[i]]
-                i++
-            }
-            return lineSquad
-        })
-        return squad
-    }
-
     useEffect(() => {
         if (correctAnswersCounter === 11) {
             setGameState({ ...gameState, win: true, gameOver: true })
@@ -111,9 +92,7 @@ const App = () => {
             </div>
         </div>
     )
-    const output =
-        (gameOver && endGameScreen) ||
-        (!startGame ? <ChallengeModal></ChallengeModal> : <Pitch formations={splitToFormations()}></Pitch>)
+    const output = (gameOver && endGameScreen) || (!startGame ? <ChallengeModal></ChallengeModal> : <Pitch></Pitch>)
     return (
         <>
             <header>Ekstraklasowe 11-tki</header>

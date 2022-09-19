@@ -54,12 +54,12 @@ footer {
 
 @media screen and (max-width: 550px) {
     html {
-        min-height: -webkit-fill-available;
+        /* min-height: -webkit-fill-available; */
     }
 
     body {
         width: 100vw;
-        min-height: -webkit-fill-available;
+        /* min-height: -webkit-fill-available; */
         overflow: hidden;
     }
 }

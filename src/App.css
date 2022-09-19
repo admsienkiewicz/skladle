@@ -60,3 +60,10 @@ footer {
     box-shadow: -41px -25px 35px rgba(0, 0, 0, 0.1);
     background-color: aliceblue;
 }
+
+@media screen and (max-width: 380px) {
+    .app-container {
+        height: 100vh;
+        max-height: -webkit-fill-available;
+    }
+}

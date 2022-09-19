@@ -91,7 +91,6 @@
 @media screen and (max-width: 550px) {
     .challange-modal {
         width: 90vw;
-        height: 60vh;
     }
     .game-info h2 {
         font-size: 18px;

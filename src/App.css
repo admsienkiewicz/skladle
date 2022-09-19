@@ -7,7 +7,7 @@
 }
 
 body {
-    height: 100vh;
+    height: calc(100vh - calc(100vh - 100%));
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -61,9 +61,5 @@ footer {
     background-color: aliceblue;
 }
 
-@media screen and (max-width: 380px) {
-    .app-container {
-        height: 100vh;
-        max-height: -webkit-fill-available;
-    }
+@media screen and (max-width: 500px) {
 }

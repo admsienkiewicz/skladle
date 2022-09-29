@@ -1,12 +1,13 @@
 import React from 'react'
 import { useContext } from 'react'
 import { AppContext } from '../App'
-import Formation from './Formation'
+import Formation from '../components/Formation'
 import { convertToLatinLetters } from '../assets/defaults'
 import './Pitch.css'
 
 const Pitch = () => {
     const { lineupData } = useContext(AppContext)
+
     const splitToFormations = () => {
         const formations = [1, ...lineupData.formation.split('-')]
         const starters = lineupData.startXI.map((starer) => {

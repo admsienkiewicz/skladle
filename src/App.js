@@ -1,11 +1,12 @@
 import React, { createContext, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { defaultFixture, defaultLineup } from './assets/defaults'
-import ChallengeModal from './components/ChallengeModal'
-import Pitch from './components/Pitch'
-import { useEffect } from 'react'
+import ChallengeModal from './pages/ChallengeModal'
+import Pitch from './pages/Pitch'
 import { AiFillGithub } from 'react-icons/ai'
 import { AiFillLinkedin } from 'react-icons/ai'
+import EndGame from './pages/EndGame'
 
 export const AppContext = createContext()
 const axios = require('axios')
@@ -71,28 +72,6 @@ const App = () => {
         setGameState({ ...gameState, loading: false })
     }
 
-    useEffect(() => {
-        if (correctAnswersCounter === 11) {
-            setGameState({ ...gameState, win: true, gameOver: true })
-        }
-    }, [correctAnswersCounter, gameState])
-
-    const { startGame, gameOver, win } = gameState
-    const endGameScreen = (
-        <div className="challange-modal">
-            <div className="end-message">{win ? <h1>Gratulacje, wygrałeś</h1> : <h1>Tym razem się nie udało</h1>}</div>
-            <div
-                className="confirm-challange"
-                onClick={() => {
-                    setCorrectAnswersCounter(0)
-                    setGameState(defaultGameState)
-                }}
-            >
-                Jeszcz raz
-            </div>
-        </div>
-    )
-    const output = (gameOver && endGameScreen) || (!startGame ? <ChallengeModal></ChallengeModal> : <Pitch></Pitch>)
     return (
         <div className="app-container">
             <header>Ekstraklasowe 11-tki</header>
@@ -107,9 +86,16 @@ const App = () => {
                     disableRequests,
                     correctAnswersCounter,
                     setCorrectAnswersCounter,
+                    defaultGameState,
                 }}
             >
-                {output}
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<ChallengeModal />} />
+                        <Route path="/pitch" element={<Pitch />} />
+                        <Route path="/endGame" element={<EndGame />} />
+                    </Routes>
+                </BrowserRouter>
             </AppContext.Provider>
             <footer>
                 Adam Sienkiewicz @2022

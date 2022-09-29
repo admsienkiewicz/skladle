@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ReactLoading from 'react-loading'
 import { AppContext } from '../App'
+import { useNavigate } from 'react-router-dom'
 import './ChallengeModal.css'
 
 const ChallengeModal = () => {
@@ -13,6 +14,7 @@ const ChallengeModal = () => {
     const matchDay = new Date(fixtureData.fixture.date).toLocaleString('pl-PL')
     const city = fixtureData.fixture.venue.city
     const { loading } = gameState
+    const navigate = useNavigate()
 
     return (
         <div className="challange-modal">
@@ -54,7 +56,10 @@ const ChallengeModal = () => {
                         </div>
                         <div
                             className="confirm-challange"
-                            onClick={() => setGameState({ ...gameState, startGame: true })}
+                            onClick={() => {
+                                setGameState({ ...gameState, startGame: true })
+                                navigate('/pitch')
+                            }}
                         >
                             Ok, zaczynam
                         </div>

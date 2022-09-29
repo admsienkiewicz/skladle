@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Board from './Board'
 import Keyboard from './Keyboard'
 import { createContext } from 'react'
 import { defaultBoard } from '../assets/defaults'
 import { AppContext } from '../App'
 import './Player.css'
+import { useNavigate } from 'react-router-dom'
 
 export const PlayerContext = createContext()
 
@@ -15,7 +16,9 @@ function Player({ playerName }) {
     const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPosition: 0 })
     const [modalOpen, setModalOpen] = useState(false)
     const [playerGuessState, setPlayerGuessState] = useState({ correctAnswer: false, gameOver: false })
-    const { fixtureData, gameState, setGameState, setCorrectAnswersCounter } = useContext(AppContext)
+    const { fixtureData, gameState, setGameState, setCorrectAnswersCounter, correctAnswersCounter } =
+        useContext(AppContext)
+    const navigate = useNavigate()
 
     const checkIfCorrectName = () => {
         const { attempt } = currAttempt
@@ -38,6 +41,7 @@ function Player({ playerName }) {
         if (currAttempt.attempt > 4) {
             setPlayerGuessState({ ...playerGuessState, gameOver: true })
             setGameState({ ...gameState, gameOver: true })
+            navigate('/endGame')
         }
     }
     const deleteClick = () => {
@@ -58,6 +62,13 @@ function Player({ playerName }) {
         setBoard(currBoard)
         setCurrAttempt({ ...currAttempt, letterPosition: currAttempt.letterPosition + 1 })
     }
+    useEffect(() => {
+        if (correctAnswersCounter === 11) {
+            setGameState({ ...gameState, win: true, gameOver: true })
+            navigate('/endGame')
+        }
+    }, [correctAnswersCounter, gameState])
+
     return (
         <>
             <div className="player-box">
